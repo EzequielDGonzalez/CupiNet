@@ -1,0 +1,235 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color: #333;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  z-index: 10;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ff6b81;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+form input {
+  display: block;
+  width: calc(100% - 20px);
+  margin: 10px auto;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  background: linear-gradient(135deg, #ff6b81, #ff4757);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #ff4757, #ff6b81);
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Hearts Animation */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(45deg);
+  animation: fall 5s linear infinite;
+  opacity: 0.8;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100%) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Corazón Rompiéndose */
+.broken-heart {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  animation: break 2s forwards;
+  margin: 20px auto;
+}
+
+.broken-heart svg {
+  width: 100%;
+  height: 100%;
+  fill: red;
+}
+
+@keyframes break {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.8) rotate(20deg); }
+  100% { transform: scale(0) rotate(-20deg); opacity: 0; }
+}
+
+/* Corazón Latiendo */
+.beating-heart {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  animation: heartbeat 1s infinite;
+  margin: 20px auto;
+}
+
+.beating-heart svg {
+  width: 100%;
+  height: 100%;
+  fill: red;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+/* Corazón con Flecha */
+.arrow-heart {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+}
+
+.arrow-heart svg {
+  width: 100%;
+  height: 100%;
+  fill: red;
+}
+
+.arrow {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: gray;
+  top: 50%;
+  left: -50px;
+  transform-origin: left center;
+  animation: moveArrow 2s linear forwards;
+}
+
+@keyframes moveArrow {
+  0% { transform: translateX(-150px); }
+  100% { transform: translateX(150px); }
+}
+
+/* Flecha con punta y plumas, de derecha a izquierda */
+.arrow {
+  position: absolute;
+  width: 120px;
+  height: 4px;
+  background: black;
+  top: 50%;
+  right: -60px; /* Cambiar 'left' por 'right' */
+  transform-origin: right center; /* Cambiar el punto de origen */
+  animation: moveArrowReverse 2s linear forwards; /* Nueva animación */
+}
+
+.arrow::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: black;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  left: -10px; /* Cambiar 'right' por 'left' */
+  top: -3px;
+}
+
+.arrow::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 10px;
+  background: black;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  right: -12px; /* Cambiar 'left' por 'right' */
+  top: -3px;
+}
+
+
+/* Animación de derecha a izquierda */
+@keyframes moveArrowReverse {
+  0% {
+    transform: translateX(150px); /* Inicia fuera del corazón */
+  }
+  100% {
+    transform: translateX(-150px); /* Atraviesa el corazón hacia la izquierda */
+  }
+}

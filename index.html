@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificador de Compatibilidad</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="hearts"></div>
+  
+  <div class="container">
+    <h1>¿Qué tan compatibles son?</h1>
+    <p>¡Descubre cuánto coincides con esa persona especial!</p>
+    
+    <form id="compatibility-form">
+      <input type="text" id="person1-name" placeholder="Tu Nombre" required>
+      <input type="text" id="person2-name" placeholder="Nombre de la otra persona" required>
+      <input type="email" id="person1-email" placeholder="Tu Correo Electrónico" required>
+      <input type="email" id="person2-email" placeholder="Correo Electrónico de la otra persona" required>
+      <button type="button" id="check-compatibility">Calcular Compatibilidad</button>
+    </form>
+
+    <div id="results" class="hidden">
+      <h2>Resultados</h2>
+      <p id="compatibility-score"></p>
+      <p id="common-things"></p>
+      <p id="different-things"></p>
+      <p id="success-rate"></p>
+      <button id="reset">Reiniciar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
